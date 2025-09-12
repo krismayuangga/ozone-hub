@@ -1,8 +1,0 @@
-{
-  "framework": "nextjs",
-  "rootDirectory": "frontend",
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": ".next",
-  "installCommand": "npm install",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD || echo 'changed'"
-}
