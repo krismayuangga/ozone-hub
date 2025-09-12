@@ -3,8 +3,10 @@
 import Image from 'next/image';
 import { Header } from '@/components/layout/Header';
 import { BottomNavigation } from '@/components/layout/BottomNavigation';
+import { useRouter } from 'next/navigation';
 
 export default function AssetsPage() {
+  const router = useRouter();
   return (
     <div className="min-h-screen bg-white pb-24">
       <Header />
@@ -23,15 +25,16 @@ export default function AssetsPage() {
         <section className="px-6 py-5 border-b border-gray-300">
           <div className="grid grid-cols-4 text-center gap-2">
             {[
-              { label: 'Deposit', icon: '/images/menu-icons/deposit.svg' },
-              { label: 'Withdraw', icon: '/images/menu-icons/withdraw.svg' },
-              { label: 'Transfer', icon: '/images/menu-icons/transfer.svg' },
-              { label: 'History', icon: '/images/menu-icons/history.svg' },
+              { label: 'Deposit', icon: '/images/menu-icons/deposit.svg', href: '/assets/deposit' },
+              { label: 'Withdraw', icon: '/images/menu-icons/withdraw.svg', href: '/assets/withdraw' },
+              { label: 'Transfer', icon: '/images/menu-icons/transfer.svg', href: '/assets/transfer' },
+              { label: 'History', icon: '/images/menu-icons/history.svg', href: '/assets/history' },
             ].map(btn => (
               <button
                 key={btn.label}
                 className="group flex flex-col items-center focus:outline-none"
                 aria-label={btn.label}
+                onClick={() => router.push(btn.href)}
               >
                 <div className="w-16 h-16 rounded-full border border-gray-500 flex items-center justify-center mb-1.5 bg-white group-hover:border-teal-600 group-active:scale-[0.97] transition-all">
                   <Image
