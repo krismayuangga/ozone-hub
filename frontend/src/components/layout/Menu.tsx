@@ -1,6 +1,7 @@
 'use client';
 
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
 interface MenuProps {
@@ -9,6 +10,8 @@ interface MenuProps {
 }
 
 export function Menu({ isOpen, onClose }: MenuProps) {
+  const router = useRouter();
+  
   if (!isOpen) return null;
 
   return (
@@ -75,7 +78,10 @@ export function Menu({ isOpen, onClose }: MenuProps) {
             <span className="font-semibold text-gray-900 text-lg">Referral Program</span>
           </button>
 
-          <button className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
+          <button 
+            onClick={() => router.push('/community')}
+            className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors"
+          >
             <div className="w-12 h-12 flex items-center justify-center">
               <Image
                 src="/images/menu-icons/community.png"
@@ -103,9 +109,12 @@ export function Menu({ isOpen, onClose }: MenuProps) {
         </div>
 
         {/* Referral Program Card */}
-        <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-200 mb-3">
+        <button 
+          onClick={() => window.location.href = '/referral'}
+          className="w-full bg-white rounded-2xl p-4 shadow-sm border border-gray-200 mb-3 hover:bg-gray-50 transition-colors"
+        >
           <div className="flex items-center justify-between">
-            <div className="flex-1">
+            <div className="flex-1 text-left">
               <div className="flex items-center space-x-2 mb-1">
                 <h3 className="font-bold text-gray-900">Referral Program</h3>
                 <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -125,10 +134,13 @@ export function Menu({ isOpen, onClose }: MenuProps) {
               />
             </div>
           </div>
-        </div>
+        </button>
 
         {/* Account Summary Card */}
-        <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-200">
+        <div 
+          className="bg-white rounded-2xl p-4 shadow-sm border border-gray-200 cursor-pointer hover:bg-gray-50"
+          onClick={() => router.push('/account')}
+        >
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-1">
