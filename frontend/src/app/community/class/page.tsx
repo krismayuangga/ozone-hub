@@ -2,6 +2,7 @@
 
 import { Header } from '@/components/layout/Header';
 import { BottomNavigation } from '@/components/layout/BottomNavigation';
+import Image from 'next/image';
 
 export default function CommunityClassPage() {
   const membershipLevels = [
@@ -10,36 +11,28 @@ export default function CommunityClassPage() {
       name: 'Bronze Member',
       minStaked: 'Min 50,000 Tokens Staked',
       monthlyYield: '0.10%',
-      bgColor: 'bg-orange-500',
-      textColor: 'text-white',
-      initial: 'B'
+      image: '/images/logos/bronze.png'
     },
     {
       id: 'silver',
       name: 'Silver Member',
       minStaked: 'Min 200,000 Tokens Staked',
       monthlyYield: '0.30%',
-      bgColor: 'bg-gray-400',
-      textColor: 'text-white',
-      initial: 'S'
+      image: '/images/logos/silver.png'
     },
     {
       id: 'gold',
       name: 'Gold Member',
       minStaked: 'Min 500,000 Tokens Staked',
       monthlyYield: '0.50%',
-      bgColor: 'bg-yellow-500',
-      textColor: 'text-white',
-      initial: 'G'
+      image: '/images/logos/gold.png'
     },
     {
       id: 'diamond',
       name: 'Diamond Member',
       minStaked: 'Min 1,000,000 Tokens Staked',
       monthlyYield: '0.70%',
-      bgColor: 'bg-blue-500',
-      textColor: 'text-white',
-      initial: 'D'
+      image: '/images/logos/diamond.png'
     }
   ];
 
@@ -63,8 +56,14 @@ export default function CommunityClassPage() {
             <div key={level.id} className="bg-white rounded-2xl p-4 shadow-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <div className={`w-12 h-12 ${level.bgColor} rounded-full flex items-center justify-center ${level.textColor} font-bold text-lg mr-4`}>
-                    {level.initial}
+                  <div className="w-16 h-16 mr-4">
+                    <Image
+                      src={level.image}
+                      alt={level.name}
+                      width={64}
+                      height={64}
+                      className="w-full h-full object-contain"
+                    />
                   </div>
                   <div>
                     <div className="font-bold text-gray-900 text-lg">{level.name}</div>
