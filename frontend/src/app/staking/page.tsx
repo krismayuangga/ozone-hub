@@ -88,12 +88,13 @@ export default function Staking() {
             </div>
           </div>
 
-          {/* Stake Now Card */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
-            <div className="flex items-center justify-between mb-4">
+          {/* Combined Staking Panel */}
+          <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-200 mb-8">
+            {/* Stake Now Section */}
+            <div className="flex items-center justify-between mb-3">
               <div>
-                <h3 className="text-lg font-bold text-teal-600 mb-2">Stake Now</h3>
-                <div className="space-y-1">
+                <h3 className="text-lg font-bold text-teal-600 mb-1">Stake Now</h3>
+                <div className="space-y-0.5">
                   <div className="text-sm text-gray-600">
                     <span>Min Yield</span>
                     <span className="ml-8">6% per mo.</span>
@@ -128,13 +129,14 @@ export default function Staking() {
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Ozone Token Balance */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
-            <div className="flex items-center justify-between">
+            {/* Divider */}
+            <div className="border-t border-gray-200 my-3"></div>
+
+            {/* Ozone Token Balance Section */}
+            <div className="flex items-center justify-between mb-3">
               <div>
-                <h3 className="text-lg font-bold text-teal-600 mb-2">Ozone Token Balance</h3>
+                <h3 className="text-lg font-bold text-teal-600 mb-1">Ozone Token Balance</h3>
                 <div className="flex items-center space-x-2">
                   <Image
                     src="/images/tokens/ozone-token.png"
@@ -155,60 +157,66 @@ export default function Staking() {
                 Buy/Swap
               </button>
             </div>
-          </div>
 
-          {/* Staking Summary */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
-            <h3 className="text-lg font-bold text-teal-600 mb-4">Staking Summary</h3>
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <p className="text-gray-600 font-medium mb-2">Token Staked</p>
-                <div className="flex items-center space-x-2">
-                  <Image
-                    src="/images/tokens/ozone-token.png"
-                    alt="OZONE Token"
-                    width={24}
-                    height={24}
-                    className="rounded-lg"
-                  />
-                  <span className="text-xl font-bold text-gray-900">
-                    {tokenStaked === 0 ? '0.00' : tokenStaked.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
-                  </span>
+            {/* Divider */}
+            <div className="border-t border-gray-200 my-3"></div>
+
+            {/* Staking Summary Section */}
+            <div className="mb-3">
+              <h3 className="text-lg font-bold text-teal-600 mb-2">Staking Summary</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-gray-600 font-medium mb-1">Token Staked</p>
+                  <div className="flex items-center space-x-2">
+                    <Image
+                      src="/images/tokens/ozone-token.png"
+                      alt="OZONE Token"
+                      width={24}
+                      height={24}
+                      className="rounded-lg"
+                    />
+                    <span className="text-xl font-bold text-gray-900">
+                      {tokenStaked === 0 ? '0.00' : tokenStaked.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div>
-                <p className="text-gray-600 font-medium mb-2">USDT Earned</p>
-                <div className="flex items-center space-x-2">
-                  <Image
-                    src="/images/tokens/usdt-token.png"
-                    alt="USDT Token"
-                    width={24}
-                    height={24}
-                    className="rounded-full"
-                  />
-                  <span className="text-xl font-bold text-gray-900">
-                    {usdtEarned === 0 ? '0.00' : usdtEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-                  </span>
+                <div>
+                  <p className="text-gray-600 font-medium mb-1">USDT Earned</p>
+                  <div className="flex items-center space-x-2">
+                    <Image
+                      src="/images/tokens/usdt-token.png"
+                      alt="USDT Token"
+                      width={24}
+                      height={24}
+                      className="rounded-full"
+                    />
+                    <span className="text-xl font-bold text-gray-900">
+                      {usdtEarned === 0 ? '0.00' : usdtEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Staking History */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-8">
-            <h3 className="text-lg font-bold text-teal-600 mb-4">Staking History</h3>
-            <div className="space-y-3">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-600">Start Date</span>
-                <span className="font-semibold text-gray-900">
-                  {tokenStaked === 0 ? '-' : '02 Sept 2025'}
-                </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-600">Estimated Last Date</span>
-                <span className="font-semibold text-gray-900">
-                  {tokenStaked === 0 ? '-' : '19 Feb 2028'}
-                </span>
+            {/* Divider */}
+            <div className="border-t border-gray-200 my-3"></div>
+
+            {/* Staking History Section */}
+            <div>
+              <h3 className="text-lg font-bold text-teal-600 mb-2">Staking History</h3>
+              <div className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600">Start Date</span>
+                  <span className="font-semibold text-gray-900">
+                    {tokenStaked === 0 ? '-' : '02 Sept 2025'}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600">Estimated Last Date</span>
+                  <span className="font-semibold text-gray-900">
+                    {tokenStaked === 0 ? '-' : '19 Feb 2028'}
+                  </span>
+                </div>
               </div>
             </div>
           </div>

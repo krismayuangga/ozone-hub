@@ -128,99 +128,111 @@ export default function PoolDetail() {
           <h1 className="text-xl font-bold text-gray-900">{pool.name}</h1>
         </div>
 
-        {/* Max Quota Progress */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-gray-700 font-medium">Max Quota</span>
-            <div className="flex items-center space-x-2">
-              <Image
-                src="/images/illustrations/ethereum-diamond.png"
-                alt="Token"
-                width={20}
-                height={20}
-                className="rounded-lg"
-              />
-              <span className="font-bold text-gray-900">
-                {pool.currentStaked.toLocaleString('en-US')} / {pool.maxQuota.toLocaleString('en-US')} Token
-              </span>
+        {/* Combined Pool Details Panel */}
+        <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-200 mb-6">
+          {/* Max Quota Section */}
+          <div className="mb-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-gray-600 text-sm font-medium">Max Quota</span>
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/images/illustrations/ethereum-diamond.png"
+                  alt="Token"
+                  width={16}
+                  height={16}
+                  className="rounded-lg"
+                />
+                <span className="font-semibold text-gray-900 text-sm">
+                  {pool.currentStaked.toLocaleString('en-US')} / {pool.maxQuota.toLocaleString('en-US')} Token
+                </span>
+              </div>
+            </div>
+            {/* Progress Bar */}
+            <div className="w-full bg-gray-200 rounded-full h-2">
+              <div 
+                className="bg-gradient-to-r from-orange-400 to-orange-500 h-2 rounded-full transition-all duration-300"
+                style={{ width: `${Math.min(quotaPercentage, 100)}%` }}
+              ></div>
             </div>
           </div>
-          {/* Progress Bar */}
-          <div className="w-full bg-gray-200 rounded-full h-2 mb-2">
-            <div 
-              className="bg-gradient-to-r from-orange-400 to-orange-500 h-2 rounded-full transition-all duration-300"
-              style={{ width: `${Math.min(quotaPercentage, 100)}%` }}
-            ></div>
-          </div>
-        </div>
 
-        {/* Balance */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
-          <div className="flex items-center justify-between">
-            <span className="text-gray-700 font-medium">Balance</span>
-            <div className="flex items-center space-x-2">
+          {/* Divider */}
+          <div className="border-t border-gray-100 my-3"></div>
+
+          {/* Balance Section */}
+          <div className="mb-3">
+            <div className="flex items-center justify-between">
+              <span className="text-gray-600 text-sm font-medium">Balance</span>
+              <div className="flex items-center space-x-2">
+                <Image
+                  src="/images/tokens/ozone-token.png"
+                  alt="OZONE Token"
+                  width={20}
+                  height={20}
+                  className="rounded-lg"
+                />
+                <span className="font-semibold text-gray-900 text-sm">
+                  {balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Token
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Divider */}
+          <div className="border-t border-gray-100 my-3"></div>
+
+          {/* Amount to Stake Section */}
+          <div className="mb-3">
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-gray-600 text-sm font-medium">Amount Stake</span>
+              <button
+                onClick={handleMaxClick}
+                className="text-orange-500 font-semibold text-xs hover:text-orange-600"
+              >
+                MAX
+              </button>
+            </div>
+            <div className="flex items-center space-x-3">
               <Image
                 src="/images/tokens/ozone-token.png"
                 alt="OZONE Token"
                 width={24}
                 height={24}
-                className="rounded-lg"
+                className="rounded-lg flex-shrink-0"
               />
-              <span className="font-bold text-gray-900">
-                {balance.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Token
-              </span>
+              <input
+                type="text"
+                value={stakeAmount}
+                onChange={(e) => setStakeAmount(e.target.value)}
+                className="flex-1 text-lg font-bold text-gray-900 bg-transparent outline-none min-w-0"
+                placeholder="0.00"
+              />
+              <span className="text-gray-600 text-sm font-medium flex-shrink-0">Token</span>
             </div>
           </div>
-        </div>
 
-        {/* Amount to Stake */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-gray-700 font-medium">Amount Stake</span>
-            <button
-              onClick={handleMaxClick}
-              className="text-orange-500 font-semibold text-sm hover:text-orange-600"
-            >
-              MAX
-            </button>
-          </div>
-          <div className="flex items-center space-x-3">
-            <Image
-              src="/images/tokens/ozone-token.png"
-              alt="OZONE Token"
-              width={32}
-              height={32}
-              className="rounded-lg flex-shrink-0"
-            />
-            <input
-              type="text"
-              value={stakeAmount}
-              onChange={(e) => setStakeAmount(e.target.value)}
-              className="flex-1 text-xl font-bold text-gray-900 bg-transparent outline-none min-w-0"
-              placeholder="0.00"
-            />
-            <span className="text-gray-700 font-medium flex-shrink-0">Token</span>
-          </div>
-        </div>
+          {/* Divider */}
+          <div className="border-t border-gray-100 my-3"></div>
 
-        {/* Yield Information */}
-        <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
-          <div className="space-y-4">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-600">Monthly Yield</span>
-              <span className="font-bold text-gray-900">{monthlyYield}%</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-600">Monthly USDT Earning</span>
-              <span className="font-bold text-gray-900">
-                {monthlyUSDTEarning.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDT
-              </span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-600">Daily USDT Earning</span>
-              <span className="font-bold text-gray-900">
-                {dailyUSDTEarning.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDT
-              </span>
+          {/* Yield Information Section */}
+          <div>
+            <div className="space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-600 text-sm">Monthly Yield</span>
+                <span className="font-semibold text-gray-900 text-sm">{monthlyYield}%</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-600 text-sm">Monthly USDT Earning</span>
+                <span className="font-semibold text-gray-900 text-sm">
+                  {monthlyUSDTEarning.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDT
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-600 text-sm">Daily USDT Earning</span>
+                <span className="font-semibold text-gray-900 text-sm">
+                  {dailyUSDTEarning.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} USDT
+                </span>
+              </div>
             </div>
           </div>
         </div>
