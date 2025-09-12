@@ -1,262 +1,274 @@
 'use client';
 
 import { useState } from 'react';
-import { MobileLayout } from '@/components/layout/MobileLayout';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import { 
-  ChartBarIcon,
-  CurrencyDollarIcon,
-  ClockIcon,
-  ShieldCheckIcon,
-  PlusIcon
-} from '@heroicons/react/24/outline';
+import { Header } from '@/components/layout/Header';
+import { BottomNavigation } from '@/components/layout/BottomNavigation';
+import Image from 'next/image';
+import { ClockIcon } from '@heroicons/react/24/outline';
 
 export default function Staking() {
-  const [selectedPool, setSelectedPool] = useState<string | null>(null);
-  const [stakeAmount, setStakeAmount] = useState('');
+  const [ozoneBalance] = useState(12375.00);
+  const [tokenStaked] = useState(12375.00);
+  const [usdtEarned] = useState(206.25);
 
   const stakingPools = [
     {
-      id: 'basic',
-      name: 'OZONE Basic Pool',
-      apy: '6.5%',
-      tvl: '$2,500,000',
-      minStake: '100',
-      maxStake: '10,000',
-      duration: '30 days',
-      risk: 'Low',
-      description: 'Perfect for beginners with flexible staking terms',
-      features: ['Daily rewards', 'Early withdrawal (1% fee)', 'Auto-compound option'],
+      id: 'limox-a',
+      name: 'LimoX - Pool A',
+      minTokens: 100,
+      maxTokens: 1000,
+      apy: 6,
+      background: '/images/illustrations/limo-background.jpg'
     },
     {
-      id: 'premium',
-      name: 'OZONE Premium Pool',
-      apy: '8.2%',
-      tvl: '$1,800,000',
-      minStake: '500',
-      maxStake: '50,000',
-      duration: '90 days',
-      risk: 'Medium',
-      description: 'Higher rewards for committed stakers',
-      features: ['Weekly bonus rewards', '10% unstaking fee', 'Priority support'],
+      id: 'limox-b',
+      name: 'LimoX - Pool B',
+      minTokens: 1001,
+      maxTokens: 3000,
+      apy: 7,
+      background: '/images/illustrations/limo-background.jpg'
     },
     {
-      id: 'elite',
-      name: 'OZONE Elite Pool',
-      apy: '10.5%',
-      tvl: '$950,000',
-      minStake: '1,000',
-      maxStake: '100,000',
-      duration: '180 days',
-      risk: 'High',
-      description: 'Maximum rewards for long-term investors',
-      features: ['Monthly bonus NFTs', '15% unstaking fee', 'VIP community access'],
-    },
-  ];
-
-  const myStakes = [
-    {
-      pool: 'OZONE Basic Pool',
-      amount: '500 OZONE',
-      value: '$400.00',
-      rewards: '12.5 OZONE',
-      apy: '6.5%',
-      daysLeft: 15,
-      status: 'Active',
+      id: 'limox-c',
+      name: 'LimoX - Pool C',
+      minTokens: 3001,
+      maxTokens: 5000,
+      apy: 8,
+      background: '/images/illustrations/limo-background.jpg'
     },
     {
-      pool: 'OZONE Premium Pool',
-      amount: '1,000 OZONE',
-      value: '$800.00',
-      rewards: '45.2 OZONE',
-      apy: '8.2%',
-      daysLeft: 45,
-      status: 'Active',
+      id: 'saprox-a',
+      name: 'SaproX - Pool A',
+      minTokens: 5001,
+      maxTokens: 10000,
+      apy: 9,
+      background: '/images/illustrations/sapro-background.jpg'
     },
-  ];
-
-  const getRiskColor = (risk: string) => {
-    switch (risk) {
-      case 'Low': return 'bg-green-100 text-green-700';
-      case 'Medium': return 'bg-yellow-100 text-yellow-700';
-      case 'High': return 'bg-red-100 text-red-700';
-      default: return 'bg-gray-100 text-gray-700';
+    {
+      id: 'saprox-b',
+      name: 'SaproX - Pool B',
+      minTokens: 10001,
+      maxTokens: null,
+      apy: 10,
+      background: '/images/illustrations/sapro-background.jpg'
     }
+  ];
+
+  const handleStakeNow = (poolId: string) => {
+    console.log('Stake now for pool:', poolId);
+  };
+
+  const handleBuySwap = () => {
+    console.log('Navigate to swap page');
   };
 
   return (
-    <MobileLayout>
-      <div className="px-6 py-6">
-        {/* Header */}
-        <div className="mb-6">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Staking Pools</h1>
-          <p className="text-gray-600">Stake your OZONE tokens and earn rewards</p>
-        </div>
-
-        {/* My Stakes */}
-        {myStakes.length > 0 && (
-          <div className="mb-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">My Stakes</h2>
-            <div className="space-y-3">
-              {myStakes.map((stake, index) => (
-                <Card key={index} className="bg-gradient-to-r from-primary-50 to-accent-50 border-primary-200">
-                  <div className="flex justify-between items-start mb-3">
-                    <div>
-                      <h3 className="font-semibold text-gray-900">{stake.pool}</h3>
-                      <p className="text-2xl font-bold text-primary-600">{stake.amount}</p>
-                      <p className="text-sm text-gray-600">{stake.value}</p>
-                    </div>
-                    <div className="text-right">
-                      <div className="bg-green-100 text-green-700 text-xs px-2 py-1 rounded-full font-medium">
-                        {stake.status}
-                      </div>
-                      <p className="text-sm text-gray-600 mt-1">{stake.daysLeft} days left</p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <p className="text-sm text-gray-600">Rewards Earned</p>
-                      <p className="font-semibold text-gray-900">{stake.rewards}</p>
-                    </div>
-                    <div className="flex space-x-2">
-                      <Button size="sm" variant="outline">Unstake</Button>
-                      <Button size="sm" variant="primary">Claim</Button>
-                    </div>
-                  </div>
-                </Card>
-              ))}
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      
+      <main className="px-6 py-6 pb-28">
+        {/* OZONE Staking Section */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="text-xl font-bold text-gray-900">OZONE Staking</h1>
+            <div className="flex items-center space-x-2 text-gray-600">
+              <ClockIcon className="w-5 h-5" />
+              <span className="text-sm">History</span>
             </div>
           </div>
-        )}
 
-        {/* Available Pools */}
-        <div className="mb-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-3">Available Pools</h2>
+          {/* Stake Now Card */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
+            <div className="flex items-center justify-between mb-4">
+              <div>
+                <h3 className="text-lg font-bold text-teal-600 mb-2">Stake Now</h3>
+                <div className="space-y-1">
+                  <div className="text-sm text-gray-600">
+                    <span>Min Yield</span>
+                    <span className="ml-8">6% per mo.</span>
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    <span>Max Yield</span>
+                    <span className="ml-6">10% per mo.</span>
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center space-x-0.5">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <div 
+                    key={i} 
+                    style={{ 
+                      marginTop: i % 2 === 0 ? '0px' : '12px'
+                    }}
+                  >
+                    <Image
+                      src="/images/illustrations/ethereum-diamond.png"
+                      alt="Diamond"
+                      width={20}
+                      height={20}
+                      className="animate-pulse"
+                      style={{ 
+                        animationDelay: `${i * 0.3}s`,
+                        animationDuration: '2s',
+                        filter: 'drop-shadow(0 0 4px rgba(34, 197, 94, 0.6))'
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Ozone Token Balance */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-lg font-bold text-teal-600 mb-2">Ozone Token Balance</h3>
+                <div className="flex items-center space-x-2">
+                  <Image
+                    src="/images/tokens/ozone-token.png"
+                    alt="OZONE Token"
+                    width={32}
+                    height={32}
+                    className="rounded-lg"
+                  />
+                  <span className="text-2xl font-bold text-gray-900">
+                    {ozoneBalance === 0 ? '0.00' : ozoneBalance.toLocaleString('en-US')}
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={handleBuySwap}
+                className="bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-800 transition-colors"
+              >
+                Buy/Swap
+              </button>
+            </div>
+          </div>
+
+          {/* Staking Summary */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-6">
+            <h3 className="text-lg font-bold text-teal-600 mb-4">Staking Summary</h3>
+            <div className="grid grid-cols-2 gap-6">
+              <div>
+                <p className="text-gray-600 font-medium mb-2">Token Staked</p>
+                <div className="flex items-center space-x-2">
+                  <Image
+                    src="/images/tokens/ozone-token.png"
+                    alt="OZONE Token"
+                    width={24}
+                    height={24}
+                    className="rounded-lg"
+                  />
+                  <span className="text-xl font-bold text-gray-900">
+                    {tokenStaked === 0 ? '0.00' : tokenStaked.toLocaleString('en-US')}
+                  </span>
+                </div>
+              </div>
+              <div>
+                <p className="text-gray-600 font-medium mb-2">USDT Earned</p>
+                <div className="flex items-center space-x-2">
+                  <Image
+                    src="/images/tokens/usdt-token.png"
+                    alt="USDT Token"
+                    width={24}
+                    height={24}
+                    className="rounded-full"
+                  />
+                  <span className="text-xl font-bold text-gray-900">
+                    {usdtEarned === 0 ? '0.00' : usdtEarned.toLocaleString('en-US')}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Staking History */}
+          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 mb-8">
+            <h3 className="text-lg font-bold text-teal-600 mb-4">Staking History</h3>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-600">Start Date</span>
+                <span className="font-semibold text-gray-900">
+                  {tokenStaked === 0 ? '-' : '02 Sept 2025'}
+                </span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-gray-600">Estimated Last Date</span>
+                <span className="font-semibold text-gray-900">
+                  {tokenStaked === 0 ? '-' : '19 Feb 2028'}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Staking Pool Section */}
+        <div>
+          <h2 className="text-xl font-bold text-gray-900 mb-6">Staking Pool</h2>
+          
           <div className="space-y-4">
             {stakingPools.map((pool) => (
-              <Card key={pool.id} className="hover:shadow-card-hover transition-all">
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <div className="flex-1">
-                      <div className="flex items-center space-x-2 mb-2">
-                        <h3 className="font-semibold text-gray-900">{pool.name}</h3>
-                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${getRiskColor(pool.risk)}`}>
-                          {pool.risk} Risk
-                        </span>
-                      </div>
-                      <p className="text-sm text-gray-600 mb-3">{pool.description}</p>
-                    </div>
-                    <div className="text-right ml-4">
-                      <div className="text-2xl font-bold text-primary-600">{pool.apy}</div>
-                      <div className="text-xs text-gray-500">APY</div>
-                    </div>
+              <div
+                key={pool.id}
+                className="relative overflow-hidden rounded-2xl shadow-lg"
+                style={{ height: '140px' }}
+              >
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={pool.background}
+                    alt={pool.name}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  {/* Dark overlay for readability */}
+                  <div className="absolute inset-0 bg-black/30"></div>
+                  {/* Hexagonal pattern overlay */}
+                  <div className="absolute inset-0 opacity-20" 
+                       style={{
+                         backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 30l15-8.66v17.32L30 30zm15-8.66L30 12.68 15 21.34 30 30l15-8.66z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                         backgroundSize: '60px 60px'
+                       }}>
                   </div>
-                </CardHeader>
-                
-                <CardContent>
-                  {/* Pool Stats */}
-                  <div className="grid grid-cols-3 gap-4 mb-4">
-                    <div className="text-center">
-                      <CurrencyDollarIcon className="w-5 h-5 text-gray-400 mx-auto mb-1" />
-                      <p className="text-xs text-gray-500">TVL</p>
-                      <p className="text-sm font-semibold">{pool.tvl}</p>
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 p-6 flex items-center justify-between h-full">
+                  <div className="text-white">
+                    <h3 className="text-xl font-bold mb-2">{pool.name}</h3>
+                    <div className="space-y-1 text-sm">
+                      <p>Min {pool.minTokens.toLocaleString()} Tokens</p>
+                      <p>
+                        Max {pool.maxTokens ? `${pool.maxTokens.toLocaleString()} Tokens` : 'Unlimited'}
+                      </p>
                     </div>
-                    <div className="text-center">
-                      <ClockIcon className="w-5 h-5 text-gray-400 mx-auto mb-1" />
-                      <p className="text-xs text-gray-500">Duration</p>
-                      <p className="text-sm font-semibold">{pool.duration}</p>
-                    </div>
-                    <div className="text-center">
-                      <ShieldCheckIcon className="w-5 h-5 text-gray-400 mx-auto mb-1" />
-                      <p className="text-xs text-gray-500">Min Stake</p>
-                      <p className="text-sm font-semibold">{pool.minStake} OZONE</p>
-                    </div>
+                    <p className="text-lg font-bold mt-2">
+                      APY {pool.apy}% per month
+                    </p>
                   </div>
 
-                  {/* Features */}
-                  <div className="mb-4">
-                    <p className="text-sm font-medium text-gray-900 mb-2">Features:</p>
-                    <ul className="text-xs text-gray-600 space-y-1">
-                      {pool.features.map((feature, index) => (
-                        <li key={index} className="flex items-center">
-                          <div className="w-1 h-1 bg-primary-500 rounded-full mr-2"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Stake Section */}
-                  {selectedPool === pool.id ? (
-                    <div className="space-y-3">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">
-                          Amount to Stake
-                        </label>
-                        <div className="relative">
-                          <input
-                            type="number"
-                            value={stakeAmount}
-                            onChange={(e) => setStakeAmount(e.target.value)}
-                            placeholder={`Min ${pool.minStake} OZONE`}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-button focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
-                          />
-                          <span className="absolute right-3 top-2 text-sm text-gray-500">OZONE</span>
-                        </div>
-                        <p className="text-xs text-gray-500 mt-1">
-                          Available: 2,500 OZONE
-                        </p>
-                      </div>
-                      <div className="flex space-x-2">
-                        <Button 
-                          variant="outline" 
-                          size="sm"
-                          fullWidth 
-                          onClick={() => setSelectedPool(null)}
-                        >
-                          Cancel
-                        </Button>
-                        <Button 
-                          variant="primary" 
-                          size="sm"
-                          fullWidth
-                          disabled={!stakeAmount || Number(stakeAmount) < Number(pool.minStake)}
-                        >
-                          Stake Now
-                        </Button>
-                      </div>
-                    </div>
-                  ) : (
-                    <Button
-                      fullWidth
-                      variant="primary"
-                      onClick={() => setSelectedPool(pool.id)}
-                      className="flex items-center justify-center"
-                    >
-                      <PlusIcon className="w-4 h-4 mr-2" />
-                      Stake in this Pool
-                    </Button>
-                  )}
-                </CardContent>
-              </Card>
+                  {/* Stake Now Button */}
+                  <button
+                    onClick={() => handleStakeNow(pool.id)}
+                    className="bg-gradient-to-r from-green-400 to-teal-500 text-white px-6 py-2 rounded-full font-bold shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+                    style={{
+                      background: 'linear-gradient(135deg, #10B981 0%, #14B8A6 100%)',
+                      boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)'
+                    }}
+                  >
+                    STAKE<br/>NOW
+                  </button>
+                </div>
+              </div>
             ))}
           </div>
         </div>
+      </main>
 
-        {/* Info Section */}
-        <Card className="bg-blue-50 border-blue-200">
-          <CardContent>
-            <h3 className="font-semibold text-blue-900 mb-2">How Staking Works</h3>
-            <ul className="text-sm text-blue-800 space-y-1">
-              <li>• Lock your OZONE tokens for a specified period</li>
-              <li>• Earn rewards based on APY and staking duration</li>
-              <li>• Rewards are distributed according to each pool&apos;s schedule</li>
-              <li>• Early withdrawal may incur fees depending on the pool</li>
-            </ul>
-          </CardContent>
-        </Card>
-      </div>
-    </MobileLayout>
+      {/* Bottom Navigation */}
+      <BottomNavigation />
+    </div>
   );
 }
