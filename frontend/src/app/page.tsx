@@ -20,15 +20,19 @@ export default function Home() {
       
       {/* Main Content */}
       <div className="flex flex-col items-center justify-center px-6 py-16">
-        {/* Large Ethereum Diamond Icon */}
-        <div className="mb-16">
-          <div className="relative w-48 h-48 mx-auto flex items-center justify-center">
+        {/* Large Animated Ethereum Diamond Icon */}
+        <div className="mb-20">
+          <div className="w-80 h-80 mx-auto flex items-center justify-center">
             <Image
               src="/images/illustrations/ethereum-diamond.png"
               alt="Ethereum Diamond"
-              width={192}
-              height={192}
-              className="object-contain"
+              width={320}
+              height={320}
+              className="object-contain select-none animate-pulse"
+              style={{ 
+                animationDuration: '2.5s',
+                filter: 'drop-shadow(0 0 12px rgba(34, 197, 94, 0.7)) drop-shadow(0 0 24px rgba(16, 185, 129, 0.4))'
+              }}
               priority
             />
           </div>
