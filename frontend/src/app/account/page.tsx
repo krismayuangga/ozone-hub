@@ -40,19 +40,19 @@ export default function AccountSummaryPage() {
 
         {/* Staking Summary */}
         <div className="bg-white rounded-lg p-4 mb-4 shadow-sm">
-          <h2 className="text-lg font-semibold text-teal-600 mb-3">Staking Summary</h2>
+          <h2 className="text-lg font-semibold text-teal-600 mb-2">Staking Summary</h2>
           
           {/* Account Value */}
-          <div className="mb-4">
+          <div className="mb-3">
             <span className="text-gray-600 text-sm">Account Value</span>
-            <div className="text-3xl font-bold text-green-600 mt-1">$ 12,375.00</div>
+            <div className="text-3xl font-bold text-green-600 mt-0.5 leading-none">$ 12,375.00</div>
           </div>
 
           {/* Token Staked and USDT Earned */}
-          <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="grid grid-cols-2 gap-4 mb-3">
             <div>
               <span className="text-gray-600 text-sm">Token Staked</span>
-              <div className="flex items-center space-x-2 mt-1">
+              <div className="flex items-center space-x-2 mt-0.5 leading-none">
                 <Image 
                   src="/images/tokens/ozone-token.png" 
                   alt="Ozone Token" 
@@ -64,7 +64,7 @@ export default function AccountSummaryPage() {
             </div>
             <div>
               <span className="text-gray-600 text-sm">USDT Earned</span>
-              <div className="flex items-center space-x-2 mt-1">
+              <div className="flex items-center space-x-2 mt-0.5 leading-none">
                 <div className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center">
                   <span className="text-white text-xs font-bold">T</span>
                 </div>
@@ -74,7 +74,7 @@ export default function AccountSummaryPage() {
           </div>
 
           {/* Max Profit */}
-          <div className="mb-4">
+          <div className="mb-3">
             <div className="flex items-center justify-between mb-2">
               <span className="text-gray-600 text-sm flex items-center space-x-2">
                 <span className="text-green-600 text-lg">$</span>
@@ -92,15 +92,15 @@ export default function AccountSummaryPage() {
             </div>
           </div>
 
-          {/* Earnings */}
-          <div className="grid grid-cols-2 gap-4">
-            <div className="flex justify-between">
-              <span className="text-gray-600">Monthly USDT Earning</span>
-              <span className="font-medium text-gray-900">1,237.50 USDT</span>
+          {/* Earnings (stacked rows, aligned values) */}
+          <div className="mt-3 space-y-1.5">
+            <div className="flex items-center justify-between leading-tight">
+              <span className="text-gray-600 text-sm">Monthly USDT Earning</span>
+              <span className="font-medium text-gray-900 text-sm">1,237.50 USDT</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-600">Daily USDT Earning</span>
-              <span className="font-medium text-gray-900">41.25 USDT</span>
+            <div className="flex items-center justify-between leading-tight">
+              <span className="text-gray-600 text-sm">Daily USDT Earning</span>
+              <span className="font-medium text-gray-900 text-sm">41.25 USDT</span>
             </div>
           </div>
         </div>
