@@ -1,0 +1,19 @@
+{
+  "app.name": "OzoneX",
+  "menu.home": "Beranda",
+  "menu.referral": "Program Referral",
+  "menu.community": "Ringkasan Komunitas",
+  "menu.settingLanguage": "Pengaturan Bahasa",
+  "menu.accountSummary": "Ringkasan Akun",
+  "card.referral.subtitle": "Maksimalkan potensi bersama Teman dan Komunitas.",
+  "card.account.subtitle": "Periksa Ringkasan Akun Anda setiap hari di sini.",
+  "language.title": "Pengaturan Bahasa",
+  "language.subtitle": "Silakan pilih bahasa utama Anda.",
+  "language.confirm": "KONFIRMASI",
+  "assets.total": "Total Aset",
+  "assets.myAssets": "Aset Saya",
+  "action.deposit": "Deposit",
+  "action.withdraw": "Tarik",
+  "action.transfer": "Transfer",
+  "action.history": "Riwayat"
+}

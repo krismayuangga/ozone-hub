@@ -1,0 +1,19 @@
+{
+  "app.name": "OzoneX",
+  "menu.home": "홈",
+  "menu.referral": "추천 프로그램",
+  "menu.community": "커뮤니티 요약",
+  "menu.settingLanguage": "언어 설정",
+  "menu.accountSummary": "계정 요약",
+  "card.referral.subtitle": "친구 및 커뮤니티와 함께 잠재력을 극대화하세요.",
+  "card.account.subtitle": "매일 여기에서 계정 요약을 확인하세요.",
+  "language.title": "언어 설정",
+  "language.subtitle": "기본 언어를 선택하세요.",
+  "language.confirm": "확인",
+  "assets.total": "총 자산",
+  "assets.myAssets": "내 자산",
+  "action.deposit": "입금",
+  "action.withdraw": "출금",
+  "action.transfer": "이체",
+  "action.history": "기록"
+}

@@ -4,9 +4,11 @@ import Image from 'next/image';
 import { Header } from '@/components/layout/Header';
 import { BottomNavigation } from '@/components/layout/BottomNavigation';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from '@/i18n';
 
 export default function AssetsPage() {
   const router = useRouter();
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-white pb-24">
       <Header />
@@ -14,7 +16,7 @@ export default function AssetsPage() {
       <div className="max-w-md mx-auto">
         {/* Top bar border sections mimic design breaks */}
         <section className="px-6 pt-5 pb-6 border-b border-gray-300">
-          <h1 className="text-lg font-semibold text-teal-600 mb-4">Total Assets</h1>
+          <h1 className="text-lg font-semibold text-teal-600 mb-4">{t('assets.total')}</h1>
           <div className="flex items-end space-x-2">
             <span className="text-[42px] font-bold leading-none text-gray-900">233.00</span>
             <span className="text-sm font-semibold text-gray-800 mb-1">USDT</span>
@@ -25,10 +27,10 @@ export default function AssetsPage() {
         <section className="px-6 py-5 border-b border-gray-300">
           <div className="grid grid-cols-4 text-center gap-2">
             {[
-              { label: 'Deposit', icon: '/images/menu-icons/deposit.svg', href: '/assets/deposit' },
-              { label: 'Withdraw', icon: '/images/menu-icons/withdraw.svg', href: '/assets/withdraw' },
-              { label: 'Transfer', icon: '/images/menu-icons/transfer.svg', href: '/assets/transfer' },
-              { label: 'History', icon: '/images/menu-icons/history.svg', href: '/assets/history' },
+              { label: t('action.deposit'), icon: '/images/menu-icons/deposit.svg', href: '/assets/deposit' },
+              { label: t('action.withdraw'), icon: '/images/menu-icons/withdraw.svg', href: '/assets/withdraw' },
+              { label: t('action.transfer'), icon: '/images/menu-icons/transfer.svg', href: '/assets/transfer' },
+              { label: t('action.history'), icon: '/images/menu-icons/history.svg', href: '/assets/history' },
             ].map(btn => (
               <button
                 key={btn.label}
@@ -55,7 +57,7 @@ export default function AssetsPage() {
 
         {/* Assets List */}
         <section className="px-6 pt-6 pb-4">
-          <h2 className="text-lg font-semibold text-teal-600 mb-4">My Assets</h2>
+          <h2 className="text-lg font-semibold text-teal-600 mb-4">{t('assets.myAssets')}</h2>
           <div className="flex items-center justify-between text-sm font-semibold text-gray-800 mb-2">
             <span>Assets</span>
             <span>Amount</span>

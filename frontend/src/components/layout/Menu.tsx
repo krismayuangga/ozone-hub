@@ -3,6 +3,7 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
+import { useTranslation } from '@/i18n';
 
 interface MenuProps {
   isOpen: boolean;
@@ -11,6 +12,7 @@ interface MenuProps {
 
 export function Menu({ isOpen, onClose }: MenuProps) {
   const router = useRouter();
+  const { t } = useTranslation();
   
   if (!isOpen) return null;
 
@@ -18,7 +20,7 @@ export function Menu({ isOpen, onClose }: MenuProps) {
     <div className="fixed inset-0 z-50 bg-white">
       {/* Header with Close Button */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200">
-        <h1 className="text-xl font-bold text-gray-900">Menu</h1>
+  <h1 className="text-xl font-bold text-gray-900">Menu</h1>
         <button
           onClick={onClose}
           className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-teal-500 text-teal-500 hover:bg-teal-50 transition-colors"
@@ -63,7 +65,7 @@ export function Menu({ isOpen, onClose }: MenuProps) {
                 className="object-contain"
               />
             </div>
-            <span className="font-semibold text-gray-900 text-lg">Home</span>
+            <span className="font-semibold text-gray-900 text-lg">{t('menu.home')}</span>
           </button>
 
           <button 
@@ -75,7 +77,7 @@ export function Menu({ isOpen, onClose }: MenuProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <span className="font-semibold text-gray-900 text-lg">Referral Program</span>
+            <span className="font-semibold text-gray-900 text-lg">{t('menu.referral')}</span>
           </button>
 
           <button 
@@ -91,7 +93,7 @@ export function Menu({ isOpen, onClose }: MenuProps) {
                 className="object-contain"
               />
             </div>
-            <span className="font-semibold text-gray-900 text-lg">Community Summary</span>
+            <span className="font-semibold text-gray-900 text-lg">{t('menu.community')}</span>
           </button>
 
           <button 
@@ -107,7 +109,7 @@ export function Menu({ isOpen, onClose }: MenuProps) {
                 className="object-contain"
               />
             </div>
-            <span className="font-semibold text-gray-900 text-lg">Setting Language</span>
+            <span className="font-semibold text-gray-900 text-lg">{t('menu.settingLanguage')}</span>
           </button>
         </div>
 
@@ -119,14 +121,12 @@ export function Menu({ isOpen, onClose }: MenuProps) {
           <div className="flex items-center justify-between">
             <div className="flex-1 text-left">
               <div className="flex items-center space-x-2 mb-1">
-                <h3 className="font-bold text-gray-900">Referral Program</h3>
+                <h3 className="font-bold text-gray-900">{t('menu.referral')}</h3>
                 <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
-              <p className="text-sm text-gray-600">
-                Maximize your potential with Friends and Community.
-              </p>
+              <p className="text-sm text-gray-600">{t('card.referral.subtitle')}</p>
             </div>
             <div className="ml-4">
               <Image
@@ -147,14 +147,12 @@ export function Menu({ isOpen, onClose }: MenuProps) {
           <div className="flex items-center justify-between">
             <div className="flex-1">
               <div className="flex items-center space-x-2 mb-1">
-                <h3 className="font-bold text-gray-900">Account Summary</h3>
+                <h3 className="font-bold text-gray-900">{t('menu.accountSummary')}</h3>
                 <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
-              <p className="text-sm text-gray-600">
-                Check your Account Summary everyday from here.
-              </p>
+              <p className="text-sm text-gray-600">{t('card.account.subtitle')}</p>
             </div>
             <div className="ml-4">
               <Image

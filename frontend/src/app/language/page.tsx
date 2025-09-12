@@ -5,6 +5,7 @@ import { BottomNavigation } from '@/components/layout/BottomNavigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { useTranslation } from '@/i18n';
 
 const LANGS = [
   { code: 'en', label: 'English' },
@@ -17,7 +18,8 @@ const LANGS = [
 
 export default function LanguagePage() {
   const { language, setLanguage } = useLanguage();
-  const [selected, setSelected] = useState(language);
+  const { t } = useTranslation();
+  const [selected, setSelected] = useState<typeof language>(language);
   const router = useRouter();
 
   useEffect(() => {
@@ -34,8 +36,8 @@ export default function LanguagePage() {
       <Header showMenu={false} />
       <div className="max-w-md mx-auto">
         <section className="px-6 pt-8 pb-10">
-          <h1 className="text-xl font-semibold text-gray-900 mb-4">Setting Language</h1>
-          <p className="text-sm text-gray-700 mb-8">Please select your default language.</p>
+          <h1 className="text-xl font-semibold text-gray-900 mb-4">{t('language.title')}</h1>
+          <p className="text-sm text-gray-700 mb-8">{t('language.subtitle')}</p>
 
           <div className="space-y-6 mb-10">
             {LANGS.map(l => {
@@ -54,7 +56,7 @@ export default function LanguagePage() {
                     name="language"
                     value={l.code}
                     checked={active}
-                    onChange={() => setSelected(l.code as any)}
+                    onChange={() => setSelected(l.code as typeof language)}
                     className="hidden"
                   />
                   <span className="text-base font-medium text-gray-900">{l.label}</span>
@@ -67,7 +69,7 @@ export default function LanguagePage() {
             onClick={handleConfirm}
             className="w-full h-12 rounded-md bg-green-600 hover:bg-green-700 active:scale-[0.98] transition text-white font-semibold tracking-wide"
           >
-            CONFIRM
+            {t('language.confirm')}
           </button>
         </section>
       </div>

@@ -1,0 +1,19 @@
+{
+  "app.name": "OzoneX",
+  "menu.home": "ホーム",
+  "menu.referral": "リファラルプログラム",
+  "menu.community": "コミュニティ概要",
+  "menu.settingLanguage": "言語設定",
+  "menu.accountSummary": "アカウント概要",
+  "card.referral.subtitle": "友人とコミュニティで可能性を最大化。",
+  "card.account.subtitle": "毎日ここでアカウント概要を確認。",
+  "language.title": "言語設定",
+  "language.subtitle": "デフォルト言語を選択してください。",
+  "language.confirm": "確認",
+  "assets.total": "総資産",
+  "assets.myAssets": "マイ資産",
+  "action.deposit": "入金",
+  "action.withdraw": "出金",
+  "action.transfer": "送金",
+  "action.history": "履歴"
+}

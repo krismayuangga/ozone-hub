@@ -1,0 +1,19 @@
+{
+  "app.name": "OzoneX",
+  "menu.home": "Home",
+  "menu.referral": "Referral Program",
+  "menu.community": "Community Summary",
+  "menu.settingLanguage": "Setting Language",
+  "menu.accountSummary": "Account Summary",
+  "card.referral.subtitle": "Maximize your potential with Friends and Community.",
+  "card.account.subtitle": "Check your Account Summary everyday from here.",
+  "language.title": "Setting Language",
+  "language.subtitle": "Please select your default language.",
+  "language.confirm": "CONFIRM",
+  "assets.total": "Total Assets",
+  "assets.myAssets": "My Assets",
+  "action.deposit": "Deposit",
+  "action.withdraw": "Withdraw",
+  "action.transfer": "Transfer",
+  "action.history": "History"
+}

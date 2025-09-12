@@ -1,0 +1,19 @@
+{
+  "app.name": "OzoneX",
+  "menu.home": "首页",
+  "menu.referral": "推荐计划",
+  "menu.community": "社区总览",
+  "menu.settingLanguage": "语言设置",
+  "menu.accountSummary": "账户总览",
+  "card.referral.subtitle": "与朋友和社区一起最大化你的潜力。",
+  "card.account.subtitle": "每天在此查看你的账户总览。",
+  "language.title": "语言设置",
+  "language.subtitle": "请选择你的默认语言。",
+  "language.confirm": "确认",
+  "assets.total": "总资产",
+  "assets.myAssets": "我的资产",
+  "action.deposit": "充值",
+  "action.withdraw": "提取",
+  "action.transfer": "转账",
+  "action.history": "历史记录"
+}

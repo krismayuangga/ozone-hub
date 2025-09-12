@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTranslation } from '@/i18n';
 import { useRouter } from 'next/navigation';
 import { Menu } from './Menu';
 
@@ -12,6 +13,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = ({ showMenu = true }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language } = useLanguage();
+  const { t } = useTranslation();
   const router = useRouter();
 
   const handleMenuToggle = () => {
@@ -29,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({ showMenu = true }) => {
           <div className="w-10 h-10 bg-gradient-to-r from-green-400 to-green-600 rounded-lg flex items-center justify-center shadow-md">
             <span className="text-white font-bold text-lg">Oz</span>
           </div>
-          <span className="text-xl font-bold text-gray-900">OzoneX</span>
+          <span className="text-xl font-bold text-gray-900">{t('app.name')}</span>
         </div>
 
         {/* Right side */}

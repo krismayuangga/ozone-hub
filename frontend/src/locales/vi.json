@@ -1,0 +1,19 @@
+{
+  "app.name": "OzoneX",
+  "menu.home": "Trang Chủ",
+  "menu.referral": "Chương Trình Giới Thiệu",
+  "menu.community": "Tổng Quan Cộng Đồng",
+  "menu.settingLanguage": "Cài Đặt Ngôn Ngữ",
+  "menu.accountSummary": "Tổng Quan Tài Khoản",
+  "card.referral.subtitle": "Tối đa hóa tiềm năng với Bạn Bè và Cộng Đồng.",
+  "card.account.subtitle": "Kiểm tra tổng quan tài khoản của bạn mỗi ngày tại đây.",
+  "language.title": "Cài Đặt Ngôn Ngữ",
+  "language.subtitle": "Vui lòng chọn ngôn ngữ mặc định.",
+  "language.confirm": "XÁC NHẬN",
+  "assets.total": "Tổng Tài Sản",
+  "assets.myAssets": "Tài Sản Của Tôi",
+  "action.deposit": "Nạp",
+  "action.withdraw": "Rút",
+  "action.transfer": "Chuyển",
+  "action.history": "Lịch Sử"
+}
