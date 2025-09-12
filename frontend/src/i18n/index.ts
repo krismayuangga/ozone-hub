@@ -7,17 +7,24 @@ import ja from '@/locales/ja.json';
 import ko from '@/locales/ko.json';
 import vi from '@/locales/vi.json';
 
-const dictionaries: Record<string, Record<string,string>> = { en, id, zh, ja, ko, vi } as any;
+// Supported language codes
+export type LangCode = 'en' | 'id' | 'zh' | 'ja' | 'ko' | 'vi';
 
-export function translate(lang: string, key: string): string {
-  const dict = dictionaries[lang] || dictionaries['en'];
+// Shape of a dictionary (flat key -> value)
+export type Dictionary = Record<string, string>;
+
+// Strictly typed dictionaries record
+const dictionaries: Record<LangCode, Dictionary> = { en, id, zh, ja, ko, vi };
+
+export function translate(lang: LangCode | string, key: string): string {
+  const dict = (dictionaries as Record<string, Dictionary>)[lang] || dictionaries.en;
   return dict[key] || key;
 }
 
 export function useTranslation() {
   const { language } = useLanguage();
-  function t(key: string) {
-    return translate(language, key);
+  function t(key: string): string {
+    return translate(language as LangCode, key);
   }
   return { t, lang: language };
 }
