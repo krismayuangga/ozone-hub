@@ -1,15 +1,26 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Header } from '@/components/layout/Header';
 import { BottomNavigation } from '@/components/layout/BottomNavigation';
 import Image from 'next/image';
 import { ClockIcon } from '@heroicons/react/24/outline';
 
 export default function Staking() {
+  const router = useRouter();
+  const [mounted, setMounted] = useState(false);
   const [ozoneBalance] = useState(12375.00);
   const [tokenStaked] = useState(12375.00);
   const [usdtEarned] = useState(206.25);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   const stakingPools = [
     {
@@ -55,7 +66,7 @@ export default function Staking() {
   ];
 
   const handleStakeNow = (poolId: string) => {
-    console.log('Stake now for pool:', poolId);
+    router.push(`/staking/${poolId}`);
   };
 
   const handleBuySwap = () => {
@@ -133,7 +144,7 @@ export default function Staking() {
                     className="rounded-lg"
                   />
                   <span className="text-2xl font-bold text-gray-900">
-                    {ozoneBalance === 0 ? '0.00' : ozoneBalance.toLocaleString('en-US')}
+                    {ozoneBalance === 0 ? '0.00' : ozoneBalance.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                   </span>
                 </div>
               </div>
@@ -161,7 +172,7 @@ export default function Staking() {
                     className="rounded-lg"
                   />
                   <span className="text-xl font-bold text-gray-900">
-                    {tokenStaked === 0 ? '0.00' : tokenStaked.toLocaleString('en-US')}
+                    {tokenStaked === 0 ? '0.00' : tokenStaked.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}
                   </span>
                 </div>
               </div>
@@ -176,7 +187,7 @@ export default function Staking() {
                     className="rounded-full"
                   />
                   <span className="text-xl font-bold text-gray-900">
-                    {usdtEarned === 0 ? '0.00' : usdtEarned.toLocaleString('en-US')}
+                    {usdtEarned === 0 ? '0.00' : usdtEarned.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                   </span>
                 </div>
               </div>
@@ -239,9 +250,9 @@ export default function Staking() {
                   <div className="text-white">
                     <h3 className="text-xl font-bold mb-2">{pool.name}</h3>
                     <div className="space-y-1 text-sm">
-                      <p>Min {pool.minTokens.toLocaleString()} Tokens</p>
+                      <p>Min {pool.minTokens.toLocaleString('en-US')} Tokens</p>
                       <p>
-                        Max {pool.maxTokens ? `${pool.maxTokens.toLocaleString()} Tokens` : 'Unlimited'}
+                        Max {pool.maxTokens ? `${pool.maxTokens.toLocaleString('en-US')} Tokens` : 'Unlimited'}
                       </p>
                     </div>
                     <p className="text-lg font-bold mt-2">

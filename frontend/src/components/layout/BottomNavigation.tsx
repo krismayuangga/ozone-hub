@@ -46,29 +46,39 @@ export const BottomNavigation: React.FC = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-50 shadow-lg">
-      <div className="max-w-md mx-auto px-4">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white z-50 shadow-lg">
+      {/* Elegant gradient border top */}
+      <div className="h-px bg-gradient-to-r from-indigo-200 via-blue-300 to-purple-200"></div>
+      <div className="max-w-md mx-auto px-4 relative">
+        {/* Center OZONE button positioned absolutely */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 -top-8 z-10">
+          <Link
+            href="/dashboard"
+            className="flex flex-col items-center justify-center"
+          >
+            {/* Gradient circular background */}
+            <div className="w-20 h-20 rounded-full bg-gradient-to-br from-indigo-500 via-blue-600 to-purple-600 shadow-xl flex items-center justify-center transform hover:scale-105 transition-transform duration-200">
+              {/* Inner circle with OZONE logo */}
+              <div className="w-16 h-16 rounded-full bg-gradient-to-br from-indigo-400 to-blue-500 flex items-center justify-center">
+                <Image
+                  src="/images/illustrations/ethereum-diamond.png"
+                  alt="OZONE"
+                  width={48}
+                  height={48}
+                  className="object-contain drop-shadow-sm"
+                />
+              </div>
+            </div>
+          </Link>
+        </div>
+
         <div className="flex items-center justify-between py-2">
           {navItems.map((item, index) => {
             const isActive = pathname === item.href;
 
-            // Center OZONE button
+            // Skip center button as it's now positioned absolutely
             if (item.isCenter) {
-              return (
-                <Link
-                  key={`center-${index}`}
-                  href={item.href}
-                  className="flex flex-col items-center justify-center"
-                >
-                  <Image
-                    src={item.icon}
-                    alt="OZONE Center"
-                    width={56}
-                    height={56}
-                    className="object-contain"
-                  />
-                </Link>
-              );
+              return <div key={`center-${index}`} className="w-16"></div>; // Placeholder to maintain spacing
             }
 
             return (
