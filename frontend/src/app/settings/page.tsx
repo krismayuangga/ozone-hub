@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { MobileLayout } from '@/components/layout/MobileLayout';
 import { Card, CardHeader, CardContent } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
 import { 
   BellIcon,
   ShieldCheckIcon,
@@ -38,8 +37,7 @@ export default function Settings() {
     }));
   };
 
-  const languages = ['English', 'Bahasa Indonesia', 'Español', 'Français', '中文'];
-  const currencies = ['USD', 'EUR', 'IDR', 'BTC', 'ETH'];
+  // Removed unused languages & currencies arrays (were not referenced in UI)
 
   return (
     <MobileLayout>

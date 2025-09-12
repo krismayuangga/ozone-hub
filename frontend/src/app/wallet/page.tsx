@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { MobileLayout } from '@/components/layout/MobileLayout';
-import { Card, CardHeader, CardContent } from '@/components/ui/Card';
+import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { 
   EyeIcon,
