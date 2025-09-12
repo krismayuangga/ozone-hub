@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { useRouter } from 'next/navigation';
 import { Menu } from './Menu';
 
 interface HeaderProps {
@@ -9,6 +11,8 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ showMenu = true }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language } = useLanguage();
+  const router = useRouter();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -31,9 +35,13 @@ export const Header: React.FC<HeaderProps> = ({ showMenu = true }) => {
         {/* Right side */}
         <div className="flex items-center space-x-3">
           {/* Language Selector */}
-          <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-1.5 rounded-full text-sm font-medium shadow-md">
-            EN
-          </div>
+          <button
+            onClick={() => router.push('/language')}
+            className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-3 py-1.5 rounded-full text-sm font-semibold shadow-md active:scale-[0.96] transition"
+            aria-label="Change Language"
+          >
+            {language.toUpperCase()}
+          </button>
           
           {/* Menu Button */}
           {showMenu && (
