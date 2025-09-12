@@ -1,12 +1,22 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
+import { Menu } from './Menu';
 
 interface HeaderProps {
   showMenu?: boolean;
 }
 
 export const Header: React.FC<HeaderProps> = ({ showMenu = true }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleMenuClose = () => {
+    setIsMenuOpen(false);
+  };
   return (
     <header className="bg-white border-b border-gradient-to-r from-blue-200 via-cyan-200 to-teal-200 shadow-sm">
       <div className="flex items-center justify-between px-6 py-4">
@@ -27,7 +37,10 @@ export const Header: React.FC<HeaderProps> = ({ showMenu = true }) => {
           
           {/* Menu Button */}
           {showMenu && (
-            <button className="p-2 hover:bg-gray-50 rounded-lg transition-colors">
+            <button 
+              onClick={handleMenuToggle}
+              className="p-2 hover:bg-gray-50 rounded-lg transition-colors"
+            >
               <div className="space-y-1">
                 <div className="w-6 h-0.5 bg-gray-600 rounded-full"></div>
                 <div className="w-6 h-0.5 bg-gray-600 rounded-full"></div>
@@ -39,6 +52,9 @@ export const Header: React.FC<HeaderProps> = ({ showMenu = true }) => {
       </div>
       {/* Elegant gradient border */}
       <div className="h-px bg-gradient-to-r from-blue-200 via-cyan-300 to-teal-200"></div>
+
+      {/* Menu Component */}
+      <Menu isOpen={isMenuOpen} onClose={handleMenuClose} />
     </header>
   );
 };
