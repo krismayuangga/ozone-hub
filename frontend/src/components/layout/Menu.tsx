@@ -91,6 +91,7 @@ export function Menu({ isOpen, onClose }: MenuProps) {
                 width={40}
                 height={40}
                 className="object-contain"
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
             <span className="font-semibold text-gray-900 text-lg">{t('menu.community')}</span>
@@ -134,6 +135,7 @@ export function Menu({ isOpen, onClose }: MenuProps) {
                 alt="Referral Network"
                 width={60}
                 height={48}
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
           </div>
@@ -160,6 +162,7 @@ export function Menu({ isOpen, onClose }: MenuProps) {
                 alt="Account Summary"
                 width={60}
                 height={48}
+                style={{ width: 'auto', height: 'auto' }}
               />
             </div>
           </div>
