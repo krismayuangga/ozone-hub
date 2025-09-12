@@ -94,7 +94,10 @@ export function Menu({ isOpen, onClose }: MenuProps) {
             <span className="font-semibold text-gray-900 text-lg">Community Summary</span>
           </button>
 
-          <button className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
+          <button 
+            onClick={() => { router.push('/language'); onClose(); }}
+            className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors"
+          >
             <div className="w-12 h-12 flex items-center justify-center">
               <Image
                 src="/images/menu-icons/setting.svg"
