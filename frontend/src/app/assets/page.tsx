@@ -33,12 +33,12 @@ export default function AssetsPage() {
                 className="group flex flex-col items-center focus:outline-none"
                 aria-label={btn.label}
               >
-                <div className="w-16 h-16 rounded-full border border-gray-400 flex items-center justify-center mb-1.5 bg-white shadow-sm group-hover:border-teal-500 group-active:scale-[0.97] transition-all">
+                <div className="w-16 h-16 rounded-full border border-gray-500 flex items-center justify-center mb-1.5 bg-white group-hover:border-teal-600 group-active:scale-[0.97] transition-all">
                   <Image
                     src={btn.icon}
                     alt={btn.label}
-                    width={36}
-                    height={36}
+                    width={30}
+                    height={30}
                     className="opacity-90 group-hover:opacity-100 transition-opacity"
                   />
                 </div>
