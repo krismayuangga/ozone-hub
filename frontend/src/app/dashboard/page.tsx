@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Header } from '@/components/layout/Header';
+import { BottomNavigation } from '@/components/layout/BottomNavigation';
 import Image from 'next/image';
 
 export default function Dashboard() {
@@ -44,7 +45,7 @@ export default function Dashboard() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <div className="px-6 py-6">
+      <div className="px-6 py-6 pb-20">
         {/* Excavator Mining Scene */}
         <div className="rounded-2xl mb-6 relative overflow-hidden min-h-[280px]">
           <Image
@@ -177,8 +178,14 @@ export default function Dashboard() {
           <div className="bg-white rounded-xl p-4 border border-gray-200">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">$</span>
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center">
+                  <Image
+                    src="/images/tokens/dollar-icon.png"
+                    alt="Dollar Icon"
+                    width={40}
+                    height={40}
+                    className="rounded-lg"
+                  />
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Max Profit</p>
@@ -205,6 +212,9 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      {/* Bottom Navigation */}
+      <BottomNavigation />
     </div>
   );
 }
