@@ -66,9 +66,13 @@ export default function AssetsPage() {
             {/* USDT Row */}
             <div className="py-4 flex items-start justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-full bg-teal-500 flex items-center justify-center shadow-sm">
-                  <span className="text-white text-base font-bold">T</span>
-                </div>
+                <Image
+                  src="/images/icons/usdt-token.png"
+                  alt="USDT"
+                  width={40}
+                  height={40}
+                  className="rounded-full"
+                />
                 <div className="leading-tight">
                   <div className="font-semibold text-gray-900">USDT</div>
                   <div className="text-xs text-gray-500">Tether</div>

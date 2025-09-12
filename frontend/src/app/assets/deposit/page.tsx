@@ -31,9 +31,13 @@ export default function DepositPage() {
           <div className="mb-6">
             <div className="text-sm font-semibold text-gray-900 mb-2">Token</div>
             <div className="h-14 rounded-xl bg-gray-100 flex items-center px-4 space-x-3">
-              <div className="w-9 h-9 rounded-full bg-teal-600 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">T</span>
-              </div>
+              <Image
+                src="/images/icons/usdt-token.png"
+                alt="USDT"
+                width={36}
+                height={36}
+                className="rounded-full"
+              />
               <span className="font-semibold text-gray-900">USDT</span>
             </div>
           </div>
@@ -59,9 +63,13 @@ export default function DepositPage() {
                 className="flex-1 bg-transparent outline-none text-gray-900 placeholder-gray-500 text-sm"
               />
               <button className="text-[11px] font-semibold text-orange-500 mr-3">MAX</button>
-              <div className="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center">
-                <span className="text-white font-bold text-xs">T</span>
-              </div>
+              <Image
+                src="/images/icons/usdt-token.png"
+                alt="USDT"
+                width={28}
+                height={28}
+                className="rounded-full"
+              />
               <span className="ml-2 text-sm font-semibold text-gray-900">USDT</span>
             </div>
           </div>

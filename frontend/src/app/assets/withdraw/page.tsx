@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/Header';
 import { BottomNavigation } from '@/components/layout/BottomNavigation';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import Image from 'next/image';
 
 export default function WithdrawPage() {
   const router = useRouter();
@@ -43,9 +44,13 @@ export default function WithdrawPage() {
                 className="flex-1 bg-transparent outline-none text-gray-900 placeholder-gray-500 text-sm"
               />
               <button className="text-[11px] font-semibold text-orange-500 mr-3">MAX</button>
-              <div className="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center">
-                <span className="text-white font-bold text-xs">T</span>
-              </div>
+              <Image
+                src="/images/icons/usdt-token.png"
+                alt="USDT"
+                width={28}
+                height={28}
+                className="rounded-full"
+              />
               <span className="ml-2 text-sm font-semibold text-gray-900">USDT</span>
             </div>
           </div>
