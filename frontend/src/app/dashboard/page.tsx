@@ -47,17 +47,19 @@ export default function Dashboard() {
       
       <div className="px-6 py-6 pb-20">
         {/* Excavator Mining Scene */}
-        <div className="rounded-2xl mb-6 relative overflow-hidden min-h-[280px]">
+        <div className="rounded-2xl mb-6 relative overflow-hidden">
           <video
             src="/images/illustrations/exavator.mp4"
             autoPlay
             loop
             muted
             playsInline
-            className="w-full h-full object-cover rounded-2xl"
+            className="w-full rounded-2xl"
             style={{ 
-              minHeight: '280px',
-              maxHeight: '280px'
+              height: 'auto',
+              minHeight: '200px',
+              maxHeight: '400px',
+              objectFit: 'contain'
             }}
           />
         </div>
