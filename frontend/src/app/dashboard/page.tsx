@@ -48,75 +48,18 @@ export default function Dashboard() {
       <div className="px-6 py-6 pb-20">
         {/* Excavator Mining Scene */}
         <div className="rounded-2xl mb-6 relative overflow-hidden min-h-[280px]">
-          <Image
-            src="/images/illustrations/excavator-mining.png"
-            alt="Excavator Mining Scene"
-            width={400}
-            height={280}
+          <video
+            src="/images/illustrations/exavator.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover rounded-2xl"
-            priority
+            style={{ 
+              minHeight: '280px',
+              maxHeight: '280px'
+            }}
           />
-          
-          {/* Animated Ethereum Diamonds - 1 big glowing rock + small swaying ones */}
-          {/* Main large diamond - size of the dark rock, pulsing/blinking effect */}
-          <div className="absolute top-16 right-10">
-            <Image
-              src="/images/illustrations/ethereum-diamond.png"
-              alt="Large Ethereum Diamond"
-              width={60}
-              height={60}
-              className="animate-pulse opacity-90"
-              style={{ 
-                animationDuration: '1.5s',
-                filter: 'drop-shadow(0 0 12px rgba(34, 197, 94, 1)) brightness(1.2)',
-                transformOrigin: 'center'
-              }}
-            />
-          </div>
-          
-          {/* Small diamond 1 - swaying motion */}
-          <div className="absolute bottom-20 right-16">
-            <Image
-              src="/images/illustrations/ethereum-diamond.png"
-              alt="Small Ethereum Diamond"
-              width={20}
-              height={20}
-              className="opacity-75"
-              style={{ 
-                animation: 'sway 3s ease-in-out infinite',
-                animationDelay: '0s',
-                filter: 'drop-shadow(0 0 4px rgba(34, 197, 94, 0.6))',
-                transformOrigin: 'center bottom'
-              }}
-            />
-          </div>
-          
-          {/* Small diamond 2 - swaying motion with different timing */}
-          <div className="absolute top-24 right-20">
-            <Image
-              src="/images/illustrations/ethereum-diamond.png"
-              alt="Small Ethereum Diamond"
-              width={18}
-              height={18}
-              className="opacity-70"
-              style={{ 
-                animation: 'sway 2.5s ease-in-out infinite',
-                animationDelay: '0.8s',
-                filter: 'drop-shadow(0 0 3px rgba(34, 197, 94, 0.5))',
-                transformOrigin: 'center bottom'
-              }}
-            />
-          </div>
-          
-          {/* CSS for swaying animation */}
-          <style jsx>{`
-            @keyframes sway {
-              0%, 100% { transform: rotate(-3deg) translateX(0px); }
-              25% { transform: rotate(2deg) translateX(1px); }
-              50% { transform: rotate(-1deg) translateX(-1px); }
-              75% { transform: rotate(3deg) translateX(1px); }
-            }
-          `}</style>
         </div>
 
         <div className="grid grid-cols-1 gap-4 mb-6">
