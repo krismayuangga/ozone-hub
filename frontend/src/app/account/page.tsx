@@ -9,7 +9,7 @@ export default function AccountSummaryPage() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       
-      <div className="px-4 py-3">
+      <div className="px-4 py-3 pb-24">
         {/* Header Section */}
         <div className="mb-4">
           <h1 className="text-xl font-bold text-gray-900 mb-3">Account Summary</h1>
@@ -65,9 +65,13 @@ export default function AccountSummaryPage() {
             <div>
               <span className="text-gray-600 text-sm">USDT Earned</span>
               <div className="flex items-center space-x-2 mt-0.5 leading-none">
-                <div className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">T</span>
-                </div>
+                <Image 
+                  src="/images/tokens/usdt-token.png" 
+                  alt="USDT Token" 
+                  width={24} 
+                  height={24}
+                  className="rounded-full"
+                />
                 <span className="text-xl font-bold text-gray-900">206.25</span>
               </div>
             </div>
@@ -81,9 +85,13 @@ export default function AccountSummaryPage() {
                 <span>Max Profit</span>
               </span>
               <div className="flex items-center space-x-2">
-                <div className="w-6 h-6 bg-teal-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">T</span>
-                </div>
+                <Image 
+                  src="/images/tokens/usdt-token.png" 
+                  alt="USDT Token" 
+                  width={24} 
+                  height={24}
+                  className="rounded-full"
+                />
                 <span className="text-sm text-gray-600">206.25 / 37,125 USDT</span>
               </div>
             </div>
@@ -103,42 +111,186 @@ export default function AccountSummaryPage() {
               <span className="font-medium text-gray-900 text-sm">41.25 USDT</span>
             </div>
           </div>
-        </div>
 
-        {/* Staking History */}
-        <div className="bg-white rounded-lg p-4 mb-4 shadow-sm">
-          <h2 className="text-lg font-semibold text-teal-600 mb-3">Staking History</h2>
-          
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div>
-              <span className="text-teal-600 text-sm">Start Date</span>
-              <div className="text-gray-900 font-medium mt-1">02 Sept 2025</div>
-            </div>
-            <div>
-              <span className="text-gray-600 text-sm">Estimated Last Date</span>
-              <div className="text-gray-900 font-medium mt-1">19 Feb 2028</div>
+          {/* Staking History */}
+          <div className="mt-4 pt-3 border-t border-gray-200">
+            <h3 className="text-md font-medium text-teal-600 mb-2">Staking History</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <span className="text-teal-600 text-xs">Start Date</span>
+                <div className="text-gray-900 text-sm font-medium mt-1">02 Sept 2025</div>
+              </div>
+              <div>
+                <span className="text-gray-600 text-xs">Estimated Last Date</span>
+                <div className="text-gray-900 text-sm font-medium mt-1">19 Feb 2028</div>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* USDT Earned Section */}
-          <div className="bg-gray-50 rounded-lg p-4">
-            <div className="text-center mb-3">
-              <span className="text-gray-600 text-lg">USDT Earned</span>
-              <div className="flex items-center justify-center space-x-2 mt-2">
-                <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">T</span>
-                </div>
-                <span className="text-3xl font-bold text-gray-900">206.25</span>
+        {/* Sponsor Summary */}
+        <div className="bg-white rounded-lg p-4 mb-4 shadow-sm">
+          <h2 className="text-lg font-semibold text-teal-600 mb-3">Sponsor Summary</h2>
+          
+          {/* Level 1 & 2 Total Staking */}
+          <div className="mb-3">
+            <div className="text-teal-600 text-sm font-medium mb-2">Level 1 Total Staking</div>
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center space-x-2">
+                <Image 
+                  src="/images/tokens/ozone-token.png" 
+                  alt="Ozone Token" 
+                  width={24} 
+                  height={24}
+                />
+                <span className="text-xl font-bold text-gray-900">1,200,000.00</span>
+              </div>
+              <div className="text-right">
+                <div className="text-xs text-gray-500">Yield</div>
+                <div className="font-semibold text-gray-900">0.80%</div>
               </div>
             </div>
             
-            <button className="w-full bg-gray-400 text-white py-2.5 px-6 rounded-lg font-medium">
-              Claim
-            </button>
-            
-            <p className="text-center text-gray-500 text-xs mt-2">
-              Min. 618.75 USDT to Claim
-            </p>
+            <div className="text-teal-600 text-sm font-medium mb-2">Level 2 Total Staking</div>
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center space-x-2">
+                <Image 
+                  src="/images/tokens/ozone-token.png" 
+                  alt="Ozone Token" 
+                  width={24} 
+                  height={24}
+                />
+                <span className="text-xl font-bold text-gray-900">0.00</span>
+              </div>
+              <div className="text-right">
+                <div className="text-xs text-gray-500">Yield</div>
+                <div className="font-semibold text-gray-900">0.50%</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Sponsor Earnings */}
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-gray-600 text-sm">Monthly USDT Earnings</span>
+              <span className="font-medium text-gray-900 text-sm">9,600 USDT</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-gray-600 text-sm">Daily USDT Earnings</span>
+              <span className="font-medium text-gray-900 text-sm">320 USDT</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-teal-600 text-sm font-medium">Total USDT Earned</span>
+              <span className="font-medium text-teal-600 text-sm">586 USDT</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Community Summary */}
+        <div className="bg-white rounded-lg p-4 mb-4 shadow-sm">
+          <h2 className="text-lg font-semibold text-teal-600 mb-3">Community Summary</h2>
+          
+          <div className="space-y-1.5">
+            <div className="flex items-center justify-between">
+              <span className="text-gray-600 text-sm">Community Tokens Staked</span>
+              <span className="font-medium text-gray-900 text-sm">1,000,000 Tokens</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-gray-600 text-sm">Monthly USDT Earnings</span>
+              <span className="font-medium text-gray-900 text-sm">7,000 USDT</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-gray-600 text-sm">Daily USDT Earnings</span>
+              <span className="font-medium text-gray-900 text-sm">233 USDT</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-teal-600 text-sm font-medium">Total USDT Earned</span>
+              <span className="font-medium text-teal-600 text-sm">233 USDT</span>
+            </div>
+          </div>
+        </div>
+
+
+
+        {/* Claim Sections */}
+        <div className="bg-white rounded-lg p-4 shadow-sm">
+          <h2 className="text-lg font-semibold text-teal-600 mb-3">Claim Center</h2>
+          
+          <div className="grid grid-cols-1 gap-3">
+            {/* Staking USDT Earned */}
+            <div className="bg-gray-50 rounded-lg p-3">
+              <div className="flex items-center justify-between mb-2">
+                <div>
+                  <span className="text-gray-600 text-sm font-medium">Staking USDT</span>
+                  <div className="flex items-center space-x-1 mt-1">
+                    <Image 
+                      src="/images/tokens/usdt-token.png" 
+                      alt="USDT Token" 
+                      width={20} 
+                      height={20}
+                      className="rounded-full"
+                    />
+                    <span className="text-xl font-bold text-gray-900">206.25</span>
+                  </div>
+                </div>
+                <button className="bg-gray-400 text-white py-2 px-4 rounded-lg text-sm font-medium">
+                  Claim
+                </button>
+              </div>
+              <p className="text-gray-500 text-xs">
+                Min. 618.75 USDT to Claim
+              </p>
+            </div>
+
+            {/* Sponsor Bonus USDT Earned */}
+            <div className="bg-gray-50 rounded-lg p-3">
+              <div className="flex items-center justify-between mb-2">
+                <div>
+                  <span className="text-gray-600 text-sm font-medium">Sponsor Bonus USDT</span>
+                  <div className="flex items-center space-x-1 mt-1">
+                    <Image 
+                      src="/images/tokens/usdt-token.png" 
+                      alt="USDT Token" 
+                      width={20} 
+                      height={20}
+                      className="rounded-full"
+                    />
+                    <span className="text-xl font-bold text-gray-900">586.00</span>
+                  </div>
+                </div>
+                <button className="bg-green-500 text-white py-2 px-4 rounded-lg text-sm font-medium hover:bg-green-600 transition-colors">
+                  Claim
+                </button>
+              </div>
+              <p className="text-gray-500 text-xs">
+                Min. 500.00 USDT to Claim
+              </p>
+            </div>
+
+            {/* Community Bonus USDT Earned */}
+            <div className="bg-gray-50 rounded-lg p-3">
+              <div className="flex items-center justify-between mb-2">
+                <div>
+                  <span className="text-gray-600 text-sm font-medium">Community Bonus USDT</span>
+                  <div className="flex items-center space-x-1 mt-1">
+                    <Image 
+                      src="/images/tokens/usdt-token.png" 
+                      alt="USDT Token" 
+                      width={20} 
+                      height={20}
+                      className="rounded-full"
+                    />
+                    <span className="text-xl font-bold text-gray-900">233.00</span>
+                  </div>
+                </div>
+                <button className="bg-gray-400 text-white py-2 px-4 rounded-lg text-sm font-medium">
+                  Claim
+                </button>
+              </div>
+              <p className="text-gray-500 text-xs">
+                Min. 500.00 USDT to Claim
+              </p>
+            </div>
           </div>
         </div>
       </div>
