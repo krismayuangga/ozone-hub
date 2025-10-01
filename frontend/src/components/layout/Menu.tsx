@@ -17,10 +17,10 @@ export function Menu({ isOpen, onClose }: MenuProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 bg-white">
+    <div className="fixed inset-0 z-50 bg-white flex flex-col">
       {/* Header with Close Button */}
-      <div className="flex items-center justify-between p-4 border-b border-gray-200">
-  <h1 className="text-xl font-bold text-gray-900">Menu</h1>
+      <div className="flex items-center justify-between p-4 border-b border-gray-200 flex-shrink-0">
+        <h1 className="text-xl font-bold text-gray-900">Menu</h1>
         <button
           onClick={onClose}
           className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-teal-500 text-teal-500 hover:bg-teal-50 transition-colors"
@@ -29,9 +29,9 @@ export function Menu({ isOpen, onClose }: MenuProps) {
         </button>
       </div>
 
-      <div className="p-4">
+      <div className="p-4 overflow-y-auto flex-1">
         {/* User Info */}
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-3">
             <div className="w-12 h-12 bg-gradient-to-r from-orange-400 to-red-500 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-lg">D</span>
@@ -54,70 +54,70 @@ export function Menu({ isOpen, onClose }: MenuProps) {
         </div>
 
         {/* Menu Items */}
-        <div className="space-y-2 mb-6">
-          <button className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors">
-            <div className="w-12 h-12 flex items-center justify-center">
+        <div className="space-y-1 mb-4">
+          <button className="w-full flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors">
+            <div className="w-10 h-10 flex items-center justify-center">
               <Image
                 src="/images/menu-icons/home.png"
                 alt="Home"
-                width={40}
-                height={40}
+                width={32}
+                height={32}
                 className="object-contain"
               />
             </div>
-            <span className="font-semibold text-gray-900 text-lg">{t('menu.home')}</span>
+            <span className="font-semibold text-gray-900 text-base">{t('menu.home')}</span>
           </button>
 
           <button 
             onClick={() => window.location.href = '/referral'}
-            className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors"
           >
-            <div className="w-12 h-12 flex items-center justify-center">
-              <svg className="w-10 h-10 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-10 h-10 flex items-center justify-center">
+              <svg className="w-8 h-8 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
             </div>
-            <span className="font-semibold text-gray-900 text-lg">{t('menu.referral')}</span>
+            <span className="font-semibold text-gray-900 text-base">{t('menu.referral')}</span>
           </button>
 
           <button 
             onClick={() => router.push('/community')}
-            className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors"
           >
-            <div className="w-12 h-12 flex items-center justify-center">
+            <div className="w-10 h-10 flex items-center justify-center">
               <Image
                 src="/images/menu-icons/community.png"
                 alt="Community Summary"
-                width={40}
-                height={40}
+                width={32}
+                height={32}
                 className="object-contain"
                 style={{ width: 'auto', height: 'auto' }}
               />
             </div>
-            <span className="font-semibold text-gray-900 text-lg">{t('menu.community')}</span>
+            <span className="font-semibold text-gray-900 text-base">{t('menu.community')}</span>
           </button>
 
           <button 
             onClick={() => { router.push('/language'); onClose(); }}
-            className="w-full flex items-center space-x-4 p-4 hover:bg-gray-50 rounded-lg transition-colors"
+            className="w-full flex items-center space-x-3 p-3 hover:bg-gray-50 rounded-lg transition-colors"
           >
-            <div className="w-12 h-12 flex items-center justify-center">
+            <div className="w-10 h-10 flex items-center justify-center">
               <Image
                 src="/images/menu-icons/setting.svg"
                 alt="Setting Language"
-                width={40}
-                height={40}
+                width={32}
+                height={32}
                 className="object-contain"
               />
             </div>
-            <span className="font-semibold text-gray-900 text-lg">{t('menu.settingLanguage')}</span>
+            <span className="font-semibold text-gray-900 text-base">{t('menu.settingLanguage')}</span>
           </button>
         </div>
 
         {/* Referral Program Card */}
         <button 
           onClick={() => window.location.href = '/referral'}
-          className="w-full bg-white rounded-2xl p-4 shadow-sm border border-gray-200 mb-3 hover:bg-gray-50 transition-colors"
+          className="w-full bg-white rounded-2xl p-3 shadow-sm border border-gray-200 mb-2 hover:bg-gray-50 transition-colors"
         >
           <div className="flex items-center justify-between">
             <div className="flex-1 text-left">
@@ -143,7 +143,7 @@ export function Menu({ isOpen, onClose }: MenuProps) {
 
         {/* Account Summary Card */}
         <div 
-          className="bg-white rounded-2xl p-4 shadow-sm border border-gray-200 cursor-pointer hover:bg-gray-50"
+          className="bg-white rounded-2xl p-3 shadow-sm border border-gray-200 cursor-pointer hover:bg-gray-50"
           onClick={() => router.push('/account')}
         >
           <div className="flex items-center justify-between">
