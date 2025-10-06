@@ -110,12 +110,9 @@ export default function PoolDetail() {
   const monthlyUSDTEarning = (stakeAmountNum * monthlyYield) / 100;
   const dailyUSDTEarning = monthlyUSDTEarning / 30;
   
-  // Calculate earnings based on selected type
-  const monthlyOzoneEarning = monthlyUSDTEarning * 1.2; // 20% bonus for OZONE
-  const dailyOzoneEarning = monthlyOzoneEarning / 30;
-  
-  const monthlyEarning = selectedEarningType === 'usdt' ? monthlyUSDTEarning : monthlyOzoneEarning;
-  const dailyEarning = selectedEarningType === 'usdt' ? dailyUSDTEarning : dailyOzoneEarning;
+  // Calculate earnings based on selected type (same rate for both USDT and OZONE)
+  const monthlyEarning = monthlyUSDTEarning;
+  const dailyEarning = dailyUSDTEarning;
   const maxReturns = monthlyEarning * pool.maxPeriod;
   
   const quotaPercentage = (pool.currentStaked / pool.maxQuota) * 100;
@@ -287,7 +284,6 @@ export default function PoolDetail() {
                       />
                       <span className="font-semibold text-gray-900">OZONE</span>
                     </div>
-                    <div className="text-xs text-teal-600 font-medium">+20% Bonus</div>
                   </button>
                 </div>
               </div>
