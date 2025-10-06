@@ -85,7 +85,7 @@ export default function PoolDetail() {
   const router = useRouter();
   const [mounted, setMounted] = useState(false);
   const [balance] = useState(12375.00);
-  const [stakeAmount, setStakeAmount] = useState('12375.00');
+  const [stakeAmount, setStakeAmount] = useState('');
   const [currentStep, setCurrentStep] = useState<StakingStep>('input');
   const [selectedEarningType, setSelectedEarningType] = useState<EarningType>('usdt');
   const [agreeToTerms, setAgreeToTerms] = useState(false);
@@ -317,7 +317,7 @@ export default function PoolDetail() {
             {/* Next Button */}
             <button
               onClick={handleStakeNow}
-              disabled={stakeAmountNum < pool.minTokens || (pool.maxTokens ? stakeAmountNum > pool.maxTokens : false)}
+              disabled={!stakeAmount || stakeAmountNum < pool.minTokens || (pool.maxTokens ? stakeAmountNum > pool.maxTokens : false)}
               className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               Next
